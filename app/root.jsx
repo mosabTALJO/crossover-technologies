@@ -7,9 +7,11 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import { json } from '@remix-run/node';
+
 export async function loader({ request }) {
   const url = new URL(request.url);
-  return Response.json({
+  return json({
     shop: url.searchParams.get("shop"),
     host: url.searchParams.get("host"),
   });
