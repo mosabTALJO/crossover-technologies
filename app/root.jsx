@@ -9,6 +9,8 @@ import {
 
 import { json } from '@remix-run/node';
 
+import { ShopifyAppProvider } from "@shopify/shopify-app-remix";
+
 export async function loader({ request }) {
   const url = new URL(request.url);
   return json({
