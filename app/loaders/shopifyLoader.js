@@ -6,11 +6,16 @@ export async function shopifyLoader(request) {
 
     const { session } = await authenticate.admin(request);
 
-    // const url = new URL(request.url);
-    // const shop = url.searchParams.get("shop");
-    // if (!session || !shop) {
-    //     return redirect(`/auth?shop=${shop}`);
-    // }
+    try{
+        const url = new URL(request.url);
+        const shop = url.searchParams.get("shop");
+        if (!session || !shop) {
+            return redirect(`/auth?shop=${shop}`);
+        }
+    }
+    catch(error){
+        console.log(`************shit: ${error}`);
+    }
 
     let shopName = session.shop.split('.')[0];
     const AuthEndpoint = `https://golf-dev.xpos.co.uk/api/shopify/StoreAuth?shopName=${shopName}`;
