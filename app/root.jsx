@@ -8,7 +8,7 @@ import {
 } from "@remix-run/react";
 
 import { json } from '@remix-run/node';
-import {authenticate} from '~/shopify.server';
+// import {authenticate} from '~/shopify.server';
 import {AppProvider} from '@shopify/shopify-app-remix/react';
 
 export async function loader({ request }) {
@@ -17,7 +17,7 @@ export async function loader({ request }) {
   //   shop: url.searchParams.get("shop"),
   //   host: url.searchParams.get("host"),
   // });
-  await authenticate.admin(request);
+  // await authenticate.admin(request);
 
   return json({ apiKey: process.env.SHOPIFY_API_KEY });
 }
