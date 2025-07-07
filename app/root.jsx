@@ -6,42 +6,43 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-export async function loader({ request }) {
-  const url = new URL(request.url);
-  return json({
-    shop: url.searchParams.get("shop"),
-    host: url.searchParams.get("host"),
-  });
-}
+// export async function loader({ request }) {
+//   const url = new URL(request.url);
+//   return json({
+//     shop: url.searchParams.get("shop"),
+//     host: url.searchParams.get("host"),
+//   });
+// }
 
-export default function App() {
-  const { shop, host } = useLoaderData<typeof loader>();
-
-  return (
-    <ShopifyAppProvider shop={shop} host={host}>
-      {/* Your app layout */}
-    </ShopifyAppProvider>
-  );
-}
 // export default function App() {
+//   const { shop, host } = useLoaderData<typeof loader>();
+
 //   return (
-//     <html>
-//       <head>
-//         <meta charSet="utf-8" />
-//         <meta name="viewport" content="width=device-width,initial-scale=1" />
-//         <link rel="preconnect" href="https://cdn.shopify.com/" />
-//         <link
-//           rel="stylesheet"
-//           href="https://cdn.shopify.com/static/fonts/inter/v4/styles.css"
-//         />
-//         <Meta />
-//         <Links />
-//       </head>
-//       <body>
-//         <Outlet />
-//         <ScrollRestoration />
-//         <Scripts />
-//       </body>
-//     </html>
+//     <ShopifyAppProvider shop={shop} host={host}>
+//       {/* Your app layout */}
+//     </ShopifyAppProvider>
 //   );
 // }
+
+export default function App() {
+  return (
+    <html>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="preconnect" href="https://cdn.shopify.com/" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.shopify.com/static/fonts/inter/v4/styles.css"
+        />
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <Outlet />
+        <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
+  );
+}
