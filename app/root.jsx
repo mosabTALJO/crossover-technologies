@@ -9,7 +9,7 @@ import {
 
 export async function loader({ request }) {
   const url = new URL(request.url);
-  return json({
+  return Response.json({
     shop: url.searchParams.get("shop"),
     host: url.searchParams.get("host"),
   });
