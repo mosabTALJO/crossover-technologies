@@ -8,22 +8,25 @@ import {
 } from "@remix-run/react";
 
 import { json } from '@remix-run/node';
-
-import { ShopifyAppProvider } from "@shopify/shopify-app-remix/react";
+import {authenticate} from '~/shopify.server';
+import {AppProvider} from '@shopify/shopify-app-remix/react';
 
 export async function loader({ request }) {
-  const url = new URL(request.url);
-  return json({
-    shop: url.searchParams.get("shop"),
-    host: url.searchParams.get("host"),
-  });
+  // const url = new URL(request.url);
+  // return json({
+  //   shop: url.searchParams.get("shop"),
+  //   host: url.searchParams.get("host"),
+  // });
+  await authenticate.admin(request);
+
+  return json({ apiKey: process.env.SHOPIFY_API_KEY });
 }
 
 export default function App() {
-  const { shop, host } = useLoaderData();
+  const { apiKey } = useLoaderData();
 
   return (
-    <ShopifyAppProvider shop={shop} host={host}>
+    <AppProvider isEmbeddedApp apiKey={apiKey}>
       <html>
       <head>
         <meta charSet="utf-8" />
@@ -42,7 +45,7 @@ export default function App() {
         <Scripts />
       </body>
     </html>
-    </ShopifyAppProvider>
+    </AppProvider>
   );
 }
 
