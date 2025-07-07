@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "787787a9c2d1daadd48dc2cb43fac2f4"
-application_url = "https://indicating-handheld-bus-democracy.trycloudflare.com"
+application_url = "https://crossover-technologies.vercel.app/"
 embedded = true
 name = "Crossover Technologies"
 handle = "crossover-technologies"
@@ -27,9 +27,9 @@ scopes = "read_customers,read_inventory,read_locations,read_orders,read_products
 
 [auth]
 redirect_urls = [
-  "https://indicating-handheld-bus-democracy.trycloudflare.com/auth/callback",
-  "https://indicating-handheld-bus-democracy.trycloudflare.com/auth/shopify/callback",
-  "https://indicating-handheld-bus-democracy.trycloudflare.com/api/auth/callback"
+  "https://crossover-technologies.vercel.app/auth/callback",
+  "https://crossover-technologies.vercel.app/auth/shopify/callback",
+  "https://crossover-technologies.vercel.app/api/auth/callback"
 ]
 
 [pos]
