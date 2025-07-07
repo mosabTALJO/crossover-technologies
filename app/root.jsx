@@ -3,6 +3,7 @@ import {
   Meta,
   Outlet,
   Scripts,
+  useLoaderData,
   ScrollRestoration,
 } from "@remix-run/react";
 
@@ -15,7 +16,7 @@ export async function loader({ request }) {
 }
 
 export default function App() {
-  const { shop, host } = useLoaderData<typeof loader>();
+  const { shop, host } = useLoaderData();
 
   return (
     <ShopifyAppProvider shop={shop} host={host}>
