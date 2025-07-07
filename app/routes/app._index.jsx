@@ -19,11 +19,11 @@ import { shopifyLoader, redirectBro } from "../loaders/shopifyLoader";
 
 export async function loader({ request }) {
 
-  const url = new URL(request.url);
-  const shop = url.searchParams.get("shop");
-  if (!shop) {
-    return redirect(`/auth?shop=${shop}`);
-  }
+  // const url = new URL(request.url);
+  // const shop = url.searchParams.get("shop");
+  // if (!shop) {
+  //   return redirect(`/auth?shop=${shop}`);
+  // }
 
   let temp = await shopifyLoader(request);
   return temp;
